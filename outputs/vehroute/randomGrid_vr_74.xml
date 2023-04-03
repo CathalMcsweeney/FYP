@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-03-31 02:10:17 by Eclipse SUMO sumo Version 1.12.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../../inputs/maps/randomGrid.net.xml"/>
+        <route-files value="../../inputs/routes/buses.flows.xml,../../inputs/routes/commercial.rou.xml,../../inputs/routes/passenger.rou.xml,../../inputs/routes/ptw.rou.xml"/>
+        <additional-files value="../../inputs/maps/busStops.add.xml,../../inputs/maps/parkingArea.add.xml,../../inputs/maps/basic.vType.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="../../outputs/trips/randomGridsummary74.xml"/>
+        <tripinfo-output value="../../outputs/trips/randomGrid_trip_74.xml"/>
+        <vehroute-output value="../../outputs/vehroute/randomGrid_vr_74.xml"/>
+    </output>
+
+    <processing>
+        <lateral-resolution value="0.3"/>
+        <ignore-junction-blocker value="60"/>
+        <ignore-route-errors value="true"/>
+        <collision.action value="none"/>
+        <time-to-teleport value="60"/>
+        <max-depart-delay value="900"/>
+        <time-to-impatience value="30"/>
+        <default.emergencydecel value="decel"/>
+        <pedestrian.model value="striping"/>
+        <pedestrian.striping.stripe-width value="0.55"/>
+        <pedestrian.striping.jamtime value="30"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="58335"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="bus:1_eastbound.0" type="bus" depart="0.00" line="Bus1-EastBound" arrival="370.00">
+        <routeDistribution>
+            <route replacedOnEdge="-402" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="-402 1016 2016 3083 -4682"/>
+            <route edges="-402 -382 386 648 1016 1487 2016 3558 -3081 3083 3784 4673 -4682"/>
+        </routeDistribution>
+        <stop busStop="busStop_-402_1_9" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_1016_1_11" duration="30.00" until="114.50"/>
+        <stop busStop="busStop_2016_1_21" duration="30.00" until="171.50"/>
+        <stop busStop="busStop_3083_1_22" duration="30.00" until="233.25"/>
+        <stop busStop="busStop_-4682_1_24" duration="30.00" until="294.75"/>
+        <param key="name" value="Bus1-EastBound"/>
+    </vehicle>
+
+    <vehicle id="bus:2_northbound.0" type="bus" depart="0.00" line="Bus2-NorthBound" arrival="457.00">
+        <routeDistribution>
+            <route replacedOnEdge="-5517" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="-5517 -400 26 784 2347 4675 7051"/>
+            <route edges="-5517 -4533 -2964 -2231 -1514 -400 -268 -52 -24 26 372 784 1237 2347 2384 3191 3903 4675 5791 7051"/>
+        </routeDistribution>
+        <stop busStop="busStop_-5517_1_0" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_-400_1_2" duration="30.00" until="115.00"/>
+        <stop busStop="busStop_26_1_4" duration="30.00" until="181.00"/>
+        <stop busStop="busStop_784_1_13" duration="30.00" until="234.00"/>
+        <stop busStop="busStop_2347_1_14" duration="30.00" until="290.50"/>
+        <stop busStop="busStop_4675_1_16" duration="30.00" until="356.50"/>
+        <stop busStop="busStop_7051_1_18" duration="30.00" until="409.50"/>
+        <param key="name" value="Bus2-NorthBound"/>
+    </vehicle>
+
+    <vehicle id="bus:2_southbound.0" type="bus" depart="0.00" line="Bus2-SouthBound" arrival="578.00">
+        <routeDistribution>
+            <route replacedOnEdge="-7051" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="-7051 -4675 -2347 -784 -26 400 5517"/>
+            <route edges="-7051 -5791 -4675 -3903 -3191 -2384 -2347 -1237 -784 -372 -26 24 52 268 400 1514 2231 2964 4533 5517"/>
+        </routeDistribution>
+        <stop busStop="busStop_-7051_1_19" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_-4675_1_17" duration="30.00" until="97.75"/>
+        <stop busStop="busStop_-2347_1_15" duration="30.00" until="169.00"/>
+        <stop busStop="busStop_-784_1_12" duration="30.00" until="226.25"/>
+        <stop busStop="busStop_-26_1_5" duration="30.00" until="283.25"/>
+        <stop busStop="busStop_400_1_3" duration="30.00" until="356.50"/>
+        <stop busStop="busStop_5517_1_1" duration="30.00" until="435.75"/>
+        <param key="name" value="Bus2-SouthBound"/>
+    </vehicle>
+
+    <vehicle id="bus:1_westbound.0" type="bus" depart="0.00" line="Bus1-WestBound" arrival="581.00">
+        <routeDistribution>
+            <route replacedOnEdge="4682" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="4682 -3083 -2016 -1016 402"/>
+            <route edges="4682 -4673 -3784 -3083 3081 -3558 -2016 -1487 -1016 -648 -386 382 402"/>
+        </routeDistribution>
+        <stop busStop="busStop_4682_1_25" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_-3083_1_23" duration="30.00" until="103.00"/>
+        <stop busStop="busStop_-2016_1_20" duration="30.00" until="163.50"/>
+        <stop busStop="busStop_-1016_1_10" duration="30.00" until="216.75"/>
+        <stop busStop="busStop_402_1_8" duration="30.00" until="283.50"/>
+        <param key="name" value="Bus1-WestBound"/>
+    </vehicle>
+
+    <vehicle id="ptw_480_tr" type="motorcycle" depart="385.00" arrival="612.00">
+        <routeDistribution>
+            <route replacedOnEdge="4793" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="4793 -4793 4808 -4808 4793"/>
+            <route edges="4793 5910 -5911 -4808 4793"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_583_tr" type="delivery" depart="282.00" arrival="645.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1237" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-1237 1237 2347 2384 3191 3903 4681 -4794 4808 -4808 4794 -4681 -3903 -3191 -2384 -2347 -1237"/>
+            <route edges="-1237 1247 1754 2384 3195 -3302 3308 4045 4793 5910 -5911 -4808 -4045 -3308 3302 -3195 -2384 -2347 -1237"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_262_tr" type="delivery" depart="400.00" arrival="650.00">
+        <routeDistribution>
+            <route replacedOnEdge="-5" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="-5 5 24 52 268 400 1514 2231 2962 -2965 -2235 -1514 -400 -268 -52 -24 -5"/>
+            <route edges="-5 3 19 51 412 781 1514 2231 2962 -2965 -2235 -1514 -400 -268 -52 -24 -5"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_612_tr" type="passenger1" depart="313.00" arrival="679.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1498" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-4507 -3565 -1498 1498 3565 4507 5398 6598 -6598 -5398 -4507"/>
+            <route edges="-4507 -3565 -1498 1490 -1489 -1016 1022 1498 3565 4507 5398 6598 -6598 -5398 -4507"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_143_tr" type="motorcycle" depart="412.00" arrival="690.00">
+        <routeDistribution>
+            <route replacedOnEdge="382" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="382 402 780 1634 2345 3072 4646 -6729 -5515 -4533 -2964 -2231 -1514 -400 382"/>
+            <route edges="382 412 782 1634 2345 3072 4646 -6729 -5515 -4533 -2964 -2231 -1514 -400 382"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_555_tr" type="delivery" depart="148.00" arrival="694.00">
+        <routeDistribution>
+            <route replacedOnEdge="4794" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="5910 -5911 -4808 4794 -4681 -3903 -3191 -2384 -2347 2346 -1740 -1239 1237 2347 2384 3191 3903 4675 5799 -5904 5910"/>
+            <route edges="5910 -5911 -4808 4794 -4687 -3919 -3195 -2384 -2347 2346 -1740 -1239 1247 1754 2384 3195 -3302 3308 4045 4793 5910"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_515_tr" type="delivery" depart="211.00" arrival="696.00">
+        <routeDistribution>
+            <route replacedOnEdge="4681" reason="traci:rerouteEffort" replacedAtTime="240.00" probability="0" edges="4681 -4681 -3903 -3191 -2384 2372 -2372 2384 3191 3903 4681"/>
+            <route edges="4681 -4687 -3919 -3195 -2384 2372 4673 -4682 -3905 3903 4681"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_444_tr" type="passenger3" depart="568.00" arrival="720.00">
+        <routeDistribution>
+            <route replacedOnEdge="1498" reason="traci:rerouteEffort" replacedAtTime="600.00" probability="0" edges="2740 -1490 1498 -1498 1490 -2740 2740"/>
+            <route edges="2740 -1490 1498 -3559 -3555 -2748 2740"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_413_tr" type="delivery" depart="285.00" arrival="751.00">
+        <routeDistribution>
+            <route replacedOnEdge="1133" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="754 1133 -1133 -754 780 1634 2341 2965 -2965 -2341 -1634 -780 754"/>
+            <route edges="754 1133 -1130 -752 780 1634 2345 3068 -2965 -2341 -1634 -780 754"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_677_tr" type="passenger1" depart="137.00" arrival="767.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1498" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="-4507 -3565 -1498 -1022 1010 1992 -1750 -1239 1247 1754 2372 -3784 -3083 3081 -3558 -2016 1994 2748 3557 6586 -4525 4507 5398 6598 -6598 -5398 -4507"/>
+            <route edges="-4507 -3565 -1498 -1022 1010 1992 -1750 -1239 1247 1754 2372 -3784 -3083 3081 -3558 -2016 1994 2740 -1490 1498 3565 4507 5398 6598 -6598 -5398 -4507"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_569_tr" type="delivery" depart="526.00" arrival="773.00">
+        <routeDistribution>
+            <route replacedOnEdge="1281" reason="traci:rerouteEffort" replacedAtTime="540.00" probability="0" edges="894 1281 1873 -1259 1267 -1267 1259 -906 894"/>
+            <route edges="894 1281 1873 -1259 1267 1872 3518 -2503 -1870 -1267 -518 520 894"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_253_tr" type="motorcycle" depart="264.00" arrival="774.00">
+        <routeDistribution>
+            <route replacedOnEdge="1992" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-1490 -1022 1010 1992 -1750 1740 2353 3087 -3087 3081 -3558 -2016 1994 2740 -1490"/>
+            <route edges="-1490 -1022 1010 1992 2354 -2349 2353 3087 3795 -3794 -3083 3081 -3558 -2016 1994 2740 -1490"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_208_tr" type="motorcycle" depart="355.00" arrival="778.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1872" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-1872 -1267 1259 -1873 1873 -1259 1267 1872 -1872"/>
+            <route edges="-1872 -1267 -518 520 894 1281 1873 -1259 1267 1870 2503 -3518 -1872"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="bus:1_westbound.1" type="bus" depart="300.00" line="Bus1-WestBound" arrival="780.00">
+        <routeDistribution>
+            <route replacedOnEdge="4682" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="4682 -3083 -2016 -1016 402"/>
+            <route edges="4682 -4673 -3784 -3083 3081 -3558 -2016 -1487 -1016 -648 -386 382 402"/>
+        </routeDistribution>
+        <stop busStop="busStop_4682_1_25" duration="30.00" until="342.75"/>
+        <stop busStop="busStop_-3083_1_23" duration="30.00" until="403.00"/>
+        <stop busStop="busStop_-2016_1_20" duration="30.00" until="463.50"/>
+        <stop busStop="busStop_-1016_1_10" duration="30.00" until="516.75"/>
+        <stop busStop="busStop_402_1_8" duration="30.00" until="583.50"/>
+        <param key="name" value="Bus1-WestBound"/>
+    </vehicle>
+
+    <vehicle id="commercial_439_tr" type="delivery" depart="324.00" arrival="788.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1010" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-1010 1010 1992 -1750 1740 2353 -2353 -1740 1750 -1992 -1010"/>
+            <route edges="-1010 1016 1487 2016 3558 -3081 -2353 2349 -2354 -1992 -1010"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_465_tr" type="motorcycle" depart="353.00" arrival="797.00">
+        <routeDistribution>
+            <route replacedOnEdge="3195" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="3195 3919 4687 -4794 4808 -4808 4794 -4681 -3903 -3191 3195"/>
+            <route edges="3195 -3302 3308 4045 4793 5910 -5911 -4808 4794 -4681 -3903 -3191 3195"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_438_tr" type="passenger2b" depart="333.00" arrival="801.00">
+        <routeDistribution>
+            <route replacedOnEdge="-4681" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="4045 4794 -4681 -3903 -3191 -2384 -2347 2346 2353 3087 3797 4652 -4652 -3797 3795 -3794 3784 4673 -3199 3195 -3302 3308 4045"/>
+            <route edges="4045 4794 -4681 -3903 -3191 -2384 2372 -3784 3794 -3795 3799 4666 5763 -5762 -4652 -3797 3795 -3794 3784 -2372 2384 3195 -3302 3308 4045"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_319_tr" type="passenger4" depart="432.00" arrival="808.00">
+        <routeDistribution>
+            <route replacedOnEdge="4808" reason="traci:rerouteEffort" replacedAtTime="480.00" probability="0" edges="-3905 3903 4681 -4794 4808 -4808 4794 -4681 -3903 3905 -3905"/>
+            <route edges="-3905 3903 4681 -4794 4808 5931 7272 -7272 -5931 -4808 -4045 -3308 3302 -3195 3199 -4682 -3905"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_566_tr" type="motorcycle" depart="270.00" arrival="810.00">
+        <routeDistribution>
+            <route replacedOnEdge="-5767" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-6915 -5767 -4672 -3799 -3087 3087 3799 4665 5754 6894 -6915"/>
+            <route edges="-6915 -5767 -4672 -3799 3795 -3794 -3083 3087 3795 4650 5754 6894 -6915"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_89_tr" type="delivery" depart="284.00" arrival="811.00">
+        <routeDistribution>
+            <route replacedOnEdge="-4254" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-4254 -3530 -1872 -1267 1259 -1873 1873 -1259 1267 1872 3530 4254 -4254"/>
+            <route edges="-4254 -3530 -1872 -1267 -518 520 894 1281 1873 -1259 1267 1872 3518 4151 -4254"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_483_tr" type="delivery" depart="263.00" arrival="824.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1498" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-3565 -1498 1494 2124 -2227 2235 -2235 2227 -2124 -1494 1498 3565 -3565"/>
+            <route edges="-3565 -1498 1494 2124 -2227 2231 2962 -2965 -2235 2227 -2124 -1494 1498 3565 4529 5510 6728 -4525 -3565"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_367_tr" type="passenger2a" depart="160.00" arrival="835.00">
+        <routeDistribution>
+            <route replacedOnEdge="1132" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="1132 -1132 -752 -402 -382 386 648 1010 1991 2738 -2738 -1991 -1010 -648 -386 382 402 752 1132"/>
+            <route edges="1132 2338 -1524 -1130 -752 -402 -382 386 648 1016 1487 2016 -2738 -1991 -1010 -648 -386 382 402 752 1132"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_341_tr" type="motorcycle" depart="146.00" arrival="837.00">
+        <routeDistribution>
+            <route replacedOnEdge="788" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="788 -788 -372 -26 24 52 268 400 1514 2235 -2235 -1514 -400 -268 -52 -24 26 372 788"/>
+            <route edges="788 1248 -1247 1239 1750 -1992 -1010 1022 1494 2124 -2227 2231 2962 -2965 -2235 -1514 -400 -268 -52 -24 26 372 788"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_219_tr" type="delivery" depart="379.00" arrival="843.00">
+        <routeDistribution>
+            <route replacedOnEdge="15" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="15 -15 3 19 51 412 782 1634 2341 -2235 -1514 -400 -268 -52 -21 -3 15"/>
+            <route edges="15 43 -29 27 -23 19 51 412 782 1634 2341 -2235 -1514 -781 -412 -51 -19 -3 15"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_6_tr" type="delivery" depart="270.00" arrival="847.00">
+        <routeDistribution>
+            <route replacedOnEdge="-3195" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="2388 3302 -3195 -2384 2372 -2372 -1754 -1248 1258 1762 2388"/>
+            <route edges="2388 3302 -3195 -2384 2372 4673 -3199 3195 -3302 3308 -4022 -2386 2388"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_125_tr" type="delivery" depart="400.00" arrival="848.00">
+        <routeDistribution>
+            <route replacedOnEdge="-3080" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="-3080 -2349 -2346 2347 2384 3191 -3191 -2384 -2347 2346 2349 3080 -3080"/>
+            <route edges="-3080 -2349 2353 3083 3784 4673 -4682 -3905 -3191 -2384 2372 -3784 -3083 3081 -3080"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_466_tr" type="delivery" depart="365.00" arrival="850.00">
+        <routeDistribution>
+            <route replacedOnEdge="1750" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="-43 42 372 784 1239 1750 -1992 -1010 1022 1498 -1498 -1022 1010 1992 -1750 -1239 -784 -372 -42 43 -43"/>
+            <route edges="-43 42 372 784 1239 1750 -1992 -1010 1022 1498 -3559 -2858 -1490 -1022 -648 -386 382 -51 -19 23 -27 29 -43"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_327_tr" type="delivery" depart="71.00" arrival="851.00">
+        <routeDistribution>
+            <route replacedOnEdge="1133" reason="traci:rerouteEffort" replacedAtTime="120.00" probability="0" edges="1133 -1133 -754 -402 -382 386 648 1016 1487 2016 3558 -3081 -2353 -1740 1750 -1992 -1010 -648 -386 382 402 754 1133"/>
+            <route edges="1133 -1130 -752 -402 -382 386 648 1016 1487 2016 3558 -3081 -2353 2349 -2354 -1992 -1010 -648 -386 382 402 754 1133"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_88_tr" type="passenger1" depart="259.00" arrival="854.00">
+        <routeDistribution>
+            <route replacedOnEdge="-754" reason="traci:rerouteEffort" replacedAtTime="300.00" probability="0" edges="-754 -402 -51 -19 -3 5 -5 3 19 51 402 752 1130 -1133 -754"/>
+            <route edges="-754 -402 -51 -19 21 -24 -5 3 19 51 402 752 1130 -1133 -754"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_360_tr" type="delivery" depart="529.00" arrival="862.00">
+        <routeDistribution>
+            <route replacedOnEdge="51" reason="traci:rerouteEffort" replacedAtTime="540.00" probability="0" edges="51 402 752 1132 2340 3681 5626 -5626 -3681 -2340 -1132 -752 -402 -51 51"/>
+            <route edges="51 402 752 1132 2340 3681 5626 -5626 -3681 -2340 -1132 -752 -402 -382 -268 -49 51"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_356_tr" type="passenger1" depart="457.00" arrival="866.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1498" reason="traci:rerouteEffort" replacedAtTime="480.00" probability="0" edges="3559 -1498 1498 -3559 3559"/>
+            <route edges="3559 -1498 1490 -1489 -1016 1022 1498 -3559 -3555 -2748 2740 2858 3559"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="bus:1_eastbound.1" type="bus" depart="407.00" line="Bus1-EastBound" arrival="878.00">
+        <routeDistribution>
+            <route replacedOnEdge="-402" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="-402 1016 2016 3083 -4682"/>
+            <route edges="-402 -382 386 648 1016 1487 2016 3558 -3081 3083 3784 4673 -4682"/>
+        </routeDistribution>
+        <stop busStop="busStop_-402_1_9" duration="30.00" until="342.75"/>
+        <stop busStop="busStop_1016_1_11" duration="30.00" until="414.50"/>
+        <stop busStop="busStop_2016_1_21" duration="30.00" until="471.50"/>
+        <stop busStop="busStop_3083_1_22" duration="30.00" until="533.25"/>
+        <stop busStop="busStop_-4682_1_24" duration="30.00" until="594.75"/>
+        <param key="name" value="Bus1-EastBound"/>
+    </vehicle>
+
+    <vehicle id="ptw_265_tr" type="motorcycle" depart="417.00" arrival="878.00">
+        <routeDistribution>
+            <route replacedOnEdge="3558" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="3558 -3558 -2016 1994 2748 3557 6586 -6728 6728 -6586 -3557 -2748 -1994 2016 3558"/>
+            <route edges="3558 -3080 -2354 -1992 -1010 1022 1498 3565 4525 -6728 6727 -6590 -3557 -2748 -1994 2016 3558"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_514_tr" type="passenger1" depart="343.00" arrival="890.00">
+        <routeDistribution>
+            <route replacedOnEdge="-2235" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-2235 -1514 -400 -268 -52 -21 23 -27 29 -43 42 -26 24 52 268 400 1514 2235 -2235"/>
+            <route edges="-2235 -1514 -781 -412 -51 -19 23 -27 29 -43 -15 3 19 51 412 782 1634 2341 -2235"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_582_tr" type="passenger1" depart="233.00" arrival="891.00">
+        <routeDistribution>
+            <route replacedOnEdge="3543" reason="traci:rerouteEffort" replacedAtTime="240.00" probability="0" edges="3543 -3543 -2625 2609 -3411 -1263 -518 -379 379 520 894 1281 1881 2625 3543"/>
+            <route edges="3543 -3544 -2635 -1883 -1281 -894 -520 -379 373 381 -381 -373 379 520 906 -3539 -2609 2625 3543"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_762_tr" type="passenger2a" depart="401.00" arrival="902.00">
+        <routeDistribution>
+            <route replacedOnEdge="3195" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="3195 -3195 3199 -4673 -3784 -3083 3087 -3087 -2353 -2346 2347 2384 3195"/>
+            <route replacedOnEdge="3087" reason="traci:rerouteEffort" replacedAtTime="720.00" probability="0" edges="3195 -3302 3308 4027 -3919 -3195 -2384 2372 -3784 -3083 3087 3795 -3794 3784 -2372 2384 3195"/>
+            <route edges="3195 -3302 3308 4027 -3919 -3195 -2384 2372 -3784 -3083 3087 3795 -3794 -3083 3087 3795 -3794 3784 -2372 2384 3195"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="ptw_60_tr" type="motorcycle" depart="426.00" arrival="903.00">
+        <routeDistribution>
+            <route replacedOnEdge="-752" reason="traci:rerouteEffort" replacedAtTime="480.00" probability="0" edges="-752 752 1132 2340 3681 5626 -5626 -3681 -2340 -1132 -752"/>
+            <route edges="-752 754 1133 -1130 1132 2340 3681 5626 -5626 -3681 -2340 -1132 -752"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_797_tr" type="passenger4" depart="391.00" arrival="911.00">
+        <routeDistribution>
+            <route replacedOnEdge="1754" reason="traci:rerouteEffort" replacedAtTime="420.00" probability="0" edges="1248 1754 2384 3191 -3191 -2384 -1754 -1248 1248"/>
+            <route edges="1248 1754 2384 3199 -4682 -3905 -3191 -2384 -1754 -1247 -784 788 1248"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="bus:2_northbound.1" type="bus" depart="300.00" line="Bus2-NorthBound" arrival="925.00">
+        <routeDistribution>
+            <route replacedOnEdge="-5517" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-5517 -400 26 784 2347 4675 7051"/>
+            <route edges="-5517 -4533 -2964 -2231 -1514 -400 -268 -52 -24 26 372 784 1237 2347 2384 3191 3903 4675 5791 7051"/>
+        </routeDistribution>
+        <stop busStop="busStop_-5517_1_0" duration="30.00" until="342.75"/>
+        <stop busStop="busStop_-400_1_2" duration="30.00" until="415.00"/>
+        <stop busStop="busStop_26_1_4" duration="30.00" until="481.00"/>
+        <stop busStop="busStop_784_1_13" duration="30.00" until="534.00"/>
+        <stop busStop="busStop_2347_1_14" duration="30.00" until="590.50"/>
+        <stop busStop="busStop_4675_1_16" duration="30.00" until="656.50"/>
+        <stop busStop="busStop_7051_1_18" duration="30.00" until="709.50"/>
+        <param key="name" value="Bus2-NorthBound"/>
+    </vehicle>
+
+    <vehicle id="passenger_656_tr" type="passenger1" depart="208.00" arrival="931.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1239" reason="traci:rerouteEffort" replacedAtTime="240.00" probability="0" edges="-1239 1237 2347 2384 3191 -3191 -2384 -2347 2346 -1740 -1239"/>
+            <route edges="-1239 1247 1754 2384 3199 -4682 -3905 -3191 -2384 -2347 2346 -1740 -1239"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="commercial_347_tr" type="delivery" depart="158.00" arrival="933.00">
+        <routeDistribution>
+            <route replacedOnEdge="-1634" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="-3072 -2345 -1634 -780 -402 -382 386 648 1016 1487 2016 3558 -3081 -2353 -1740 1750 -1992 -1010 -648 -386 382 402 780 1634 2345 3072 -3072"/>
+            <route edges="-3072 -2345 -1634 -782 -412 -382 386 648 1016 1487 2016 3558 -3081 -2353 2349 -2354 -1992 -1010 1022 1494 2124 -2227 2231 2964 4531 -4642 -3072"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_207_tr" type="passenger2b" depart="213.00" arrival="948.00">
+        <routeDistribution>
+            <route replacedOnEdge="1010" reason="traci:rerouteEffort" replacedAtTime="240.00" probability="0" edges="-1490 -1022 1010 1992 -1750 -1239 1237 2347 2384 3191 3903 4681 -4794 4808 -4808 4794 -4687 -3919 -3195 3199 -4673 -3784 -3083 3081 -3558 -2016 1994 2740 -1490"/>
+            <route edges="-1490 -1022 1010 1992 -1750 -1239 1247 1754 2384 3195 -3302 3308 4045 4793 5910 -5911 -4808 -4045 -3308 3302 -3195 -2384 2372 -3784 -3083 3081 -3558 -2016 1994 2740 -1490"/>
+        </routeDistribution>
+    </vehicle>
+
+</routes>

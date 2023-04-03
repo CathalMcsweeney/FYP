@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-03-31 01:18:40 by Eclipse SUMO sumo Version 1.12.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../../inputs/maps/randomGrid.net.xml"/>
+        <route-files value="../../inputs/routes/buses.flows.xml,../../inputs/routes/commercial.rou.xml,../../inputs/routes/passenger.rou.xml,../../inputs/routes/ptw.rou.xml"/>
+        <additional-files value="../../inputs/maps/busStops.add.xml,../../inputs/maps/parkingArea.add.xml,../../inputs/maps/basic.vType.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="../../outputs/trips/randomGridsummary5.xml"/>
+        <tripinfo-output value="../../outputs/trips/randomGrid_trip_5.xml"/>
+        <vehroute-output value="../../outputs/vehroute/randomGrid_vr_5.xml"/>
+    </output>
+
+    <processing>
+        <lateral-resolution value="0.3"/>
+        <ignore-junction-blocker value="60"/>
+        <ignore-route-errors value="true"/>
+        <collision.action value="none"/>
+        <time-to-teleport value="60"/>
+        <max-depart-delay value="900"/>
+        <time-to-impatience value="30"/>
+        <default.emergencydecel value="decel"/>
+        <pedestrian.model value="striping"/>
+        <pedestrian.striping.stripe-width value="0.55"/>
+        <pedestrian.striping.jamtime value="30"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="40921"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="passenger_187_tr" type="passenger3" depart="191.00" arrival="673.00">
+        <routeDistribution>
+            <route replacedOnEdge="-6255" reason="traci:rerouteEffort" replacedAtTime="240.00" probability="0" edges="-6255 6255 -4291 -3538 3518 -2503 2503 -3518 3538 4291 -6255"/>
+            <route edges="-6255 6261 -6261 6255 -4291 -3538 3518 -2503 2505 3515 -3515 -2505 2503 -3518 3538 4291 -6255"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="bus:1_eastbound.0" type="bus" depart="0.00" line="Bus1-EastBound" arrival="709.00">
+        <routeDistribution>
+            <route replacedOnEdge="-402" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="-402 1016 2016 3083 -4682"/>
+            <route edges="-402 -382 386 648 1016 1487 2016 -2738 2739 -2349 2353 3083 3784 4673 -4682"/>
+        </routeDistribution>
+        <stop busStop="busStop_-402_1_9" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_1016_1_11" duration="30.00" until="114.50"/>
+        <stop busStop="busStop_2016_1_21" duration="30.00" until="171.50"/>
+        <stop busStop="busStop_3083_1_22" duration="30.00" until="233.25"/>
+        <stop busStop="busStop_-4682_1_24" duration="30.00" until="294.75"/>
+        <param key="name" value="Bus1-EastBound"/>
+    </vehicle>
+
+    <vehicle id="commercial_293_tr" type="delivery" depart="306.00" arrival="792.00">
+        <routeDistribution>
+            <route replacedOnEdge="386" reason="traci:rerouteEffort" replacedAtTime="360.00" probability="0" edges="-1514 -400 386 648 -648 -386 400 1514 -1514"/>
+            <route edges="-1514 -400 386 648 1022 1494 2124 -2227 -1514"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="bus:2_northbound.0" type="bus" depart="0.00" line="Bus2-NorthBound" arrival="796.00">
+        <routeDistribution>
+            <route replacedOnEdge="-5517" reason="traci:rerouteEffort" replacedAtTime="1.00" probability="0" edges="-5517 -400 26 784 2347 4675 7051"/>
+            <route edges="-5517 -4533 -2964 -2231 -1514 -400 -268 -52 -24 26 372 784 1237 2347 -1754 -1248 1258 1762 2386 4022 4045 4794 -4681 4675 5791 7051"/>
+        </routeDistribution>
+        <stop busStop="busStop_-5517_1_0" duration="30.00" until="42.75"/>
+        <stop busStop="busStop_-400_1_2" duration="30.00" until="115.00"/>
+        <stop busStop="busStop_26_1_4" duration="30.00" until="181.00"/>
+        <stop busStop="busStop_784_1_13" duration="30.00" until="234.00"/>
+        <stop busStop="busStop_2347_1_14" duration="30.00" until="290.50"/>
+        <stop busStop="busStop_4675_1_16" duration="30.00" until="356.50"/>
+        <stop busStop="busStop_7051_1_18" duration="30.00" until="409.50"/>
+        <param key="name" value="Bus2-NorthBound"/>
+    </vehicle>
+
+    <vehicle id="passenger_456_tr" type="passenger2b" depart="70.00" arrival="830.00">
+        <routeDistribution>
+            <route replacedOnEdge="1022" reason="traci:rerouteEffort" replacedAtTime="120.00" probability="0" edges="1022 -1022 1010 1992 -1750 1740 2353 3087 3799 4672 -4672 -3799 -3087 -2353 -1740 1750 -1992 -1010 1022"/>
+            <route edges="1022 1490 -1489 1487 2016 -2738 2739 -2349 2353 3087 3799 4672 5773 -5773 -4672 -3799 -3087 3081 -3080 -2739 2738 -2016 -1487 -1016 1022"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_38_tr" type="passenger4" depart="145.00" arrival="832.00">
+        <routeDistribution>
+            <route replacedOnEdge="1248" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="-2386 -1762 -1258 1248 1754 2372 -3784 -3083 -2353 -1740 -1239 1247 -1248 1258 1762 2386 -2386"/>
+            <route edges="-2386 -1762 -1258 1248 1754 2372 -3784 -3083 -2353 -2346 2347 2372 4673 -4682 -3905 3903 4681 -4794 -4045 -4022 -2386"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="passenger_243_tr" type="passenger2a" depart="174.00" arrival="931.00">
+        <routeDistribution>
+            <route replacedOnEdge="6041" reason="traci:rerouteEffort" replacedAtTime="180.00" probability="0" edges="6041 -4948 -4260 -3530 -1872 -1267 1267 1872 3530 4254 6041"/>
+            <route edges="6041 6152 -6036 -4817 -4149 -3518 -1872 -1267 -518 520 906 -1259 1267 1872 3518 4151 6041"/>
+        </routeDistribution>
+    </vehicle>
+
+</routes>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-03-23 19:08:00 by Eclipse SUMO sumo Version 1.12.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../../inputs/maps/small_dublin.net.xml"/>
+        <route-files value="../../inputs/routes/small_dublin.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="../../outputs/trips/small_dublin_trip_624.xml"/>
+        <vehroute-output value="../../outputs/vehroute/small_dublin_vr_624.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <processing>
+        <threads value="12"/>
+    </processing>
+
+    <report>
+        <verbose value="false"/>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <emissions>
+        <device.emissions.probability value="1"/>
+    </emissions>
+
+    <traci_server>
+        <remote-port value="39429"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="3" depart="6.00" arrival="84.00">
+        <route edges="129211847#1 129211847#3 129211816#1 129211816#2 385558485#0 385558485#1 -317101094#13 -317101094#12 -317101094#10 -317101094#8 -317101094#7 -317101094#6 -317101094#5 -317101094#3 -317101094#2 -317101094#1 317101094#1"/>
+    </vehicle>
+
+    <vehicle id="16" depart="32.00" arrival="85.00">
+        <route edges="-31992229#1 31992229#1 25536089#0 25536089#1 25536089#2 -25536089#2"/>
+    </vehicle>
+
+    <vehicle id="8" depart="16.00" arrival="86.00">
+        <route edges="-4287294#9 -4287294#3 -4287294#1 -4287294#0 -710574992 -228818579#5 -228818579#4 -228818579#2 -228818579#1 5976031#0 5976031#1 449366744 25553646 317544588#0"/>
+    </vehicle>
+
+    <vehicle id="21" depart="42.00" arrival="100.00">
+        <routeDistribution>
+            <route replacedOnEdge="25761610#4" reason="traci:rerouteEffort" replacedAtTime="60.00" probability="0" edges="32758219#1 25761610#4 -25761629 130304206 129211833 -54451007#6 449556613#2 449556613#3 449556613#4"/>
+            <route edges="32758219#1 25761610#4 -25761629 130304206 -191042860#2 25731440#0 54451007#3 449556613#4"/>
+        </routeDistribution>
+    </vehicle>
+
+    <vehicle id="6" depart="12.00" arrival="111.00">
+        <route edges="317219091#2 317219091#3 317219091#4 317219091#5 376465146#1 376465146#2 317544590#0 317544590#1 317544590#2 376465147#0 376465147#1 376465147#2 7421646#0 7421646#2"/>
+    </vehicle>
+
+    <vehicle id="27" depart="54.00" arrival="134.00">
+        <route edges="13866342#0 -13866342#0 317027065#5 13873181#0 13873181#1 4628799 -44398171#0 -36819763#3 -36819763#2 -36819763#1 -36819763#0 -4926209#1 -4315737 -228373543#6 -228373543#5 -228373543#4 228373543#4"/>
+    </vehicle>
+
+    <vehicle id="50" depart="100.00" arrival="144.00">
+        <route edges="-75450419#0 129211803#2 129211857#4 129211857#1 129211804#0 129211804#2 -372460212#0 -129211837#2 -129211837#1"/>
+    </vehicle>
+
+    <vehicle id="14" depart="28.00" arrival="171.00">
+        <route edges="-54451008#0 -317219087 -20848446#3 -20848446#2 -20848446#1 20848447#0 20848447#2 20848447#3 128571079#0 -128571079#0 129211848#0 -127219363 -127219365#0"/>
+    </vehicle>
+
+</routes>

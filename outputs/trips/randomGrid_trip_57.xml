@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-03-31 01:59:00 by Eclipse SUMO sumo Version 1.12.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="../../inputs/maps/randomGrid.net.xml"/>
+        <route-files value="../../inputs/routes/buses.flows.xml,../../inputs/routes/commercial.rou.xml,../../inputs/routes/passenger.rou.xml,../../inputs/routes/ptw.rou.xml"/>
+        <additional-files value="../../inputs/maps/busStops.add.xml,../../inputs/maps/parkingArea.add.xml,../../inputs/maps/basic.vType.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="../../outputs/trips/randomGridsummary57.xml"/>
+        <tripinfo-output value="../../outputs/trips/randomGrid_trip_57.xml"/>
+        <vehroute-output value="../../outputs/vehroute/randomGrid_vr_57.xml"/>
+    </output>
+
+    <processing>
+        <lateral-resolution value="0.3"/>
+        <ignore-junction-blocker value="60"/>
+        <ignore-route-errors value="true"/>
+        <collision.action value="none"/>
+        <time-to-teleport value="60"/>
+        <max-depart-delay value="900"/>
+        <time-to-impatience value="30"/>
+        <default.emergencydecel value="decel"/>
+        <pedestrian.model value="striping"/>
+        <pedestrian.striping.stripe-width value="0.55"/>
+        <pedestrian.striping.jamtime value="30"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="51007"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="bus:1_eastbound.0" depart="0.00" departLane="-402_1" departPos="12.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.00" arrival="378.00" arrivalLane="-4682_1" arrivalPos="83.90" arrivalPosLat="0.00" arrivalSpeed="4.95" duration="378.00" routeLength="1450.71" waitingTime="10.00" waitingCount="5" stopTime="150.00" timeLoss="100.16" rerouteNo="5" devices="vehroute_bus:1_eastbound.0 tripinfo_bus:1_eastbound.0" vType="bus" speedFactor="0.84" vaporized=""/>
+    <tripinfo id="ptw_480_tr" depart="387.00" departLane="4793_1" departPos="2.30" departPosLat="0.00" departSpeed="0.00" departDelay="2.05" arrival="517.00" arrivalLane="4793_2" arrivalPos="83.38" arrivalPosLat="0.00" arrivalSpeed="12.64" duration="130.00" routeLength="462.78" waitingTime="80.00" waitingCount="2" stopTime="0.00" timeLoss="100.62" rerouteNo="1" devices="vehroute_ptw_480_tr tripinfo_ptw_480_tr" vType="motorcycle" speedFactor="1.07" vaporized=""/>
+    <tripinfo id="bus:1_westbound.0" depart="0.00" departLane="4682_1" departPos="12.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.00" arrival="601.00" arrivalLane="402_1" arrivalPos="77.92" arrivalPosLat="0.00" arrivalSpeed="3.30" duration="601.00" routeLength="1784.89" waitingTime="146.00" waitingCount="14" stopTime="150.00" timeLoss="315.25" rerouteNo="8" devices="vehroute_bus:1_westbound.0 tripinfo_bus:1_westbound.0" vType="bus" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="commercial_583_tr" depart="282.00" departLane="-1237_1" departPos="6.60" departPosLat="0.00" departSpeed="0.00" departDelay="0.89" arrival="746.00" arrivalLane="-1237_1" arrivalPos="84.44" arrivalPosLat="0.00" arrivalSpeed="12.32" duration="464.00" routeLength="2166.69" waitingTime="164.00" waitingCount="7" stopTime="0.00" timeLoss="295.20" rerouteNo="7" devices="vehroute_commercial_583_tr tripinfo_commercial_583_tr" vType="delivery" speedFactor="0.96" vaporized=""/>
+    <tripinfo id="ptw_493_tr" depart="271.00" departLane="1766_1" departPos="2.30" departPosLat="0.00" departSpeed="0.00" departDelay="0.43" arrival="771.00" arrivalLane="1766_1" arrivalPos="83.00" arrivalPosLat="1.15" arrivalSpeed="12.63" duration="500.00" routeLength="1611.20" waitingTime="238.00" waitingCount="15" stopTime="0.00" timeLoss="382.60" rerouteNo="7" devices="vehroute_ptw_493_tr tripinfo_ptw_493_tr" vType="motorcycle" speedFactor="1.01" vaporized=""/>
+    <tripinfo id="bus:2_southbound.0" depart="0.00" departLane="-7051_1" departPos="12.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.00" arrival="786.00" arrivalLane="5517_1" arrivalPos="75.40" arrivalPosLat="0.00" arrivalSpeed="3.09" duration="786.00" routeLength="2554.68" waitingTime="156.00" waitingCount="7" stopTime="210.00" timeLoss="385.87" rerouteNo="12" devices="vehroute_bus:2_southbound.0 tripinfo_bus:2_southbound.0" vType="bus" speedFactor="1.01" vaporized=""/>
+    <tripinfo id="passenger_611_tr" depart="352.00" departLane="27_1" departPos="5.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.36" arrival="797.00" arrivalLane="27_1" arrivalPos="78.87" arrivalPosLat="0.00" arrivalSpeed="14.05" duration="445.00" routeLength="1639.40" waitingTime="185.00" waitingCount="9" stopTime="0.00" timeLoss="304.27" rerouteNo="3" devices="vehroute_passenger_611_tr tripinfo_passenger_611_tr" vType="passenger4" speedFactor="1.02" vaporized=""/>
+    <tripinfo id="passenger_451_tr" depart="343.00" departLane="5_1" departPos="5.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.29" arrival="816.00" arrivalLane="5_1" arrivalPos="79.61" arrivalPosLat="0.00" arrivalSpeed="10.83" duration="473.00" routeLength="1614.36" waitingTime="290.00" waitingCount="9" stopTime="0.00" timeLoss="375.19" rerouteNo="7" devices="vehroute_passenger_451_tr tripinfo_passenger_451_tr" vType="passenger2b" speedFactor="1.19" vaporized=""/>
+    <tripinfo id="commercial_300_tr" depart="176.00" departLane="752_1" departPos="6.60" departPosLat="0.00" departSpeed="0.00" departDelay="0.17" arrival="832.00" arrivalLane="752_1" arrivalPos="81.12" arrivalPosLat="0.00" arrivalSpeed="12.86" duration="656.00" routeLength="1992.29" waitingTime="337.00" waitingCount="16" stopTime="0.00" timeLoss="512.59" rerouteNo="11" devices="vehroute_commercial_300_tr tripinfo_commercial_300_tr" vType="delivery" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="commercial_324_tr" depart="271.00" departLane="1762_1" departPos="6.60" departPosLat="0.00" departSpeed="0.00" departDelay="0.81" arrival="837.00" arrivalLane="1762_1" arrivalPos="75.81" arrivalPosLat="0.00" arrivalSpeed="11.40" duration="566.00" routeLength="2195.01" waitingTime="244.00" waitingCount="13" stopTime="0.00" timeLoss="390.38" rerouteNo="8" devices="vehroute_commercial_324_tr tripinfo_commercial_324_tr" vType="delivery" speedFactor="0.90" vaporized=""/>
+    <tripinfo id="ptw_399_tr" depart="191.00" departLane="2965_1" departPos="2.30" departPosLat="0.00" departSpeed="0.00" departDelay="0.34" arrival="851.00" arrivalLane="2965_1" arrivalPos="76.28" arrivalPosLat="0.95" arrivalSpeed="14.62" duration="660.00" routeLength="1970.18" waitingTime="255.00" waitingCount="27" stopTime="0.00" timeLoss="539.34" rerouteNo="10" devices="vehroute_ptw_399_tr tripinfo_ptw_399_tr" vType="motorcycle" speedFactor="1.22" vaporized=""/>
+    <tripinfo id="passenger_677_tr" depart="137.00" departLane="-4507_1" departPos="5.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.22" arrival="893.00" arrivalLane="-4507_1" arrivalPos="84.77" arrivalPosLat="0.00" arrivalSpeed="12.14" duration="756.00" routeLength="3821.71" waitingTime="261.00" waitingCount="12" stopTime="0.00" timeLoss="439.15" rerouteNo="11" devices="vehroute_passenger_677_tr tripinfo_passenger_677_tr" vType="passenger1" speedFactor="0.88" vaporized=""/>
+    <tripinfo id="passenger_526_tr" depart="184.00" departLane="1132_1" departPos="5.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.30" arrival="918.00" arrivalLane="1132_2" arrivalPos="85.04" arrivalPosLat="0.00" arrivalSpeed="13.48" duration="734.00" routeLength="2372.73" waitingTime="344.00" waitingCount="14" stopTime="0.00" timeLoss="557.20" rerouteNo="12" devices="vehroute_passenger_526_tr tripinfo_passenger_526_tr" vType="passenger1" speedFactor="0.99" vaporized=""/>
+    <tripinfo id="ptw_71_tr" depart="416.00" departLane="-6862_1" departPos="2.30" departPosLat="0.00" departSpeed="0.00" departDelay="0.31" arrival="932.00" arrivalLane="-6862_2" arrivalPos="78.32" arrivalPosLat="-1.15" arrivalSpeed="14.41" duration="516.00" routeLength="3164.41" waitingTime="136.00" waitingCount="8" stopTime="0.00" timeLoss="302.32" rerouteNo="9" devices="vehroute_ptw_71_tr tripinfo_ptw_71_tr" vType="motorcycle" speedFactor="1.10" vaporized=""/>
+    <tripinfo id="passenger_201_tr" depart="83.00" departLane="5514_1" departPos="5.10" departPosLat="0.00" departSpeed="0.00" departDelay="0.77" arrival="943.00" arrivalLane="5514_1" arrivalPos="87.17" arrivalPosLat="0.00" arrivalSpeed="12.77" duration="860.00" routeLength="3371.30" waitingTime="383.00" waitingCount="18" stopTime="0.00" timeLoss="596.49" rerouteNo="14" devices="vehroute_passenger_201_tr tripinfo_passenger_201_tr" vType="passenger4" speedFactor="0.95" vaporized=""/>
+</tripinfos>

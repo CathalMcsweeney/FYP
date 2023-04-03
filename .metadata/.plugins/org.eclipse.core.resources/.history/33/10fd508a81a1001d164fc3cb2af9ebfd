@@ -1,0 +1,294 @@
+package server;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.rmi.*;
+import java.rmi.registry.*;
+import java.rmi.server.UnicastRemoteObject;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
+import java.util.Random;
+
+import components.Share;
+import components.ShareHolding;
+import components.ShareImpl;
+import components.User;
+import exceptions.AuthenticationFailed;
+
+public class ShareServerImpl implements ShareServer {
+
+    User user = new User();
+    static List<User> users = new ArrayList<User>();
+    static List<Share> shares = new ArrayList<Share>();
+
+    ShareServerImpl() throws RemoteException {
+        super();
+        users.add(user);
+    }
+
+    public static void main(String args[]) {
+        try {
+            // Reset security manager
+            if (System.getSecurityManager() == null) {
+                System.setSecurityManager(new SecurityManager());
+                System.out.println("Security manager set");
+            }
+
+            // Create an instance of the local object
+            ShareServer server = new ShareServerImpl();
+            ShareServer stub = (ShareServer) UnicastRemoteObject.exportObject(server, 0);
+
+            // Initialise share marketplace from csv file and update prices every minute
+            initialiseShares();
+            Random rand = new Random();
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            for (Share share : shares) {
+                                try {
+                                    share.setPrice(share.getPrice() * (rand.nextDouble() * (2.0 - 0.25) + 0.1));
+                                } catch (IOException e) {
+                                    System.out.println(e);
+                                }
+                            }
+                            System.out.println(LocalDateTime.now().toString() + " : Share Prices Updated");
+                        }
+                    },
+                    60000, 60000);
+
+            // Put server object into registry
+            Registry registry = LocateRegistry.getRegistry();
+            registry.rebind("TradingApplication", stub);
+            System.out.println("Name rebind completed.");
+            System.out.println("Server ready for requests....");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void initialiseShares() throws NumberFormatException, IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("./shares.csv"));
+        String line = "";
+        String[] data;
+        while ((line = reader.readLine()) != null) {
+            data = line.split(",");
+            String name = data[0];
+            int available = Integer.parseInt(data[1]);
+            double price = Double.parseDouble(data[2]);
+            Share share = new ShareImpl(name, available, price);
+            shares.add(share);
+        }
+        reader.close();
+    }
+
+    @Override
+    public String login(String username, String password) throws RemoteException {
+        for (User user : users) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                String value = Base64.getEncoder().encodeToString((username + password).getBytes());
+                LocalDateTime expiration = LocalDateTime.now().plusMinutes(5);
+                user.setToken(value);
+                user.setExpiration(expiration);
+                System.out.println(LocalDateTime.now().toString() + " : Successful login attempt...");
+                return value;
+            }
+        }
+
+        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful login attempt...");
+        return null;
+
+    }
+
+    @Override
+    public List<Share> getAvailableShares(String token) throws RemoteException {
+        List<Share> availableShares = new ArrayList<Share>();
+
+        for (Share share : shares) {
+            if (share.getAvailable() > 0) {
+                availableShares.add(share);
+            }
+        }
+
+        return availableShares;
+    }
+
+    @Override
+    public void deposit(String token, double amount) throws RemoteException, AuthenticationFailed {
+        if (amount > 0) {
+            for (User user : users) {
+                if (user.getToken().equals(token)) {
+                    if (!user.isExpired()) {
+                        user.setBalance(user.getBalance() + amount);
+                        System.out.println(LocalDateTime.now().toString() + " : Successful deposit...");
+                        return;
+                    } else {
+                        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful deposit...");
+                        throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                    }
+                }
+            }
+
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful deposit...");
+            throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+        } else {
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful deposit...");
+            throw new RemoteException("Deposit amount must be > zero.");
+        }
+
+    }
+
+    @Override
+    public void withdraw(String token, double amount) throws RemoteException, AuthenticationFailed {
+        if (amount > 0) {
+            for (User user : users) {
+                if (user.getToken().equals(token)) {
+                    if (!user.isExpired()) {
+                        user.setBalance(user.getBalance() - amount);
+                        System.out.println(LocalDateTime.now().toString() + " : Successful withdrawal...");
+                        return;
+                    } else {
+                        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful withdrawal...");
+                        throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                    }
+                }
+            }
+
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful withdrawal...");
+            throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+        } else {
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful withdrawal...");
+            throw new RemoteException("Withdrawal amount must be > zero.");
+        }
+    }
+
+    @Override
+    public void purchase(String token, int id, int amount) throws RemoteException, AuthenticationFailed {
+        if (amount > 0) {
+            for (User user : users) { // ++
+                if (user.getToken().equals(token)) { // ++
+                    if (!user.isExpired()) { // ++
+                        Share share = shares.get(id); // ++
+                        if (amount <= share.getAvailable()) { // ++
+                            if ((amount * share.getPrice()) <= user.getBalance()) { // ++
+                                try {
+                                    Share newShare = new ShareImpl(share.getName(), share.getAvailable() - amount,
+                                            share.getPrice());
+                                    ShareServerImpl.shares.set(id, newShare);
+                                    user.purchaseShareHolding(share, amount);
+                                    user.setBalance(user.getBalance() - (amount * share.getPrice()));
+                                    System.out.println(LocalDateTime.now().toString() + " : Successful purchase...");
+                                    return;
+                                } catch (IOException e) {
+                                    System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+                                    throw new RemoteException("Unexpected error completing purchase.");
+                                }
+                            } else {
+                                System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+                                throw new RemoteException("Insufficient funds to complete purchase.");
+                            }
+                        } else {
+                            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+                            throw new RemoteException("Not enough shares to complete purchase.");
+                        }
+                    } else {
+                        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+                        throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                    }
+                }
+            }
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+            throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+        } else {
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful purchase...");
+            throw new RemoteException("Must purchase at least one share.");
+        }
+    }
+
+    @Override
+    public void sell(String token, ShareHolding shareHolding, int amount) throws RemoteException, AuthenticationFailed {
+        if (amount > 0) {
+            for (User user : users) {
+                if (user.getToken().equals(token)) {
+                    if (!user.isExpired()) {
+                        if (amount <= shareHolding.getOwned()) {
+                            int id = 0;
+                            for (Share share : shares) {
+                                if (shareHolding.getShare().equals(share)) {
+                                    Share newShare = new ShareImpl(share,
+                                            share.getAvailable() + amount);
+                                    ShareServerImpl.shares.set(id, newShare);
+                                    user.sellShareHolding(newShare, amount);
+                                    user.setBalance(user.getBalance() + (amount * shareHolding.getCurPrice()));
+                                    System.out.println(LocalDateTime.now().toString() + " : Successful sale...");
+                                    return;
+                                }
+                                id++;
+                            }
+                        } else {
+                            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful sale...");
+                            throw new RemoteException("Not enough shares to complete sale.");
+                        }
+                    } else {
+                        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful sale...");
+                        throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                    }
+                }
+            }
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful sale...");
+            throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+        } else {
+            System.out.println(LocalDateTime.now().toString() + " : Unsuccessful sale...");
+            throw new RemoteException("Must sell at least one share.");
+        }
+    }
+
+    @Override
+    public List<ShareHolding> getShareHoldings(String token) throws RemoteException, AuthenticationFailed {
+        for (User user : users) {
+            if (user.getToken().equals(token)) {
+                if (!user.isExpired()) {
+                    System.out.println(LocalDateTime.now().toString() + " : Successful share holdings request...");
+                    List<ShareHolding> shareHoldings = user.getShares();
+                    // Update shares owned by user to reflect updated prices
+                    for (ShareHolding sh : shareHoldings) {
+                        for (Share share : shares) {
+                            if (sh.getShare().equals(share)) {
+                                sh.setShare(share);
+                            }
+                        }
+                    }
+
+                    return shareHoldings;
+                } else {
+                    System.out.println(LocalDateTime.now().toString() + " : Unsuccessful share holdings request...");
+                    throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                }
+            }
+        }
+
+        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful share holdings request...");
+        throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+    }
+
+    @Override
+    public double getAccountBalance(String token) throws RemoteException, AuthenticationFailed {
+        for (User user : users) {
+            if (user.getToken().equals(token)) {
+                if (!user.isExpired()) {
+                    System.out.println(LocalDateTime.now().toString() + " : Successful balance request...");
+                    return user.getBalance();
+                } else {
+                    System.out.println(LocalDateTime.now().toString() + " : Unsuccessful balance request...");
+                    throw new AuthenticationFailed("Authentication token timed out. Please login again.");
+                }
+            }
+        }
+
+        System.out.println(LocalDateTime.now().toString() + " : Unsuccessful balance request...");
+        throw new AuthenticationFailed("Invalid authentication token provided. Please login again.");
+    }
+}

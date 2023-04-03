@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./PonyGE2-master/src"
+    ]
+}

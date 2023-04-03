@@ -1,0 +1,18 @@
+ Retrying in 1 seconds
+run
+Edge statistic at time step 0, Delta Time: 0, vehicle count: 0
+set edge cost
+step: 60
+Edge statistic at time step 60, Delta Time: 4, vehicle count: 2
+set edge cost
+step: 120
+Edge statistic at time step 120, Delta Time: 9, vehicle count: 100
+set edge cost
+step: 180
+Edge statistic at time step 180, Delta Time: 14, vehicle count: 96
+set edge cost
+step: 240
+Edge statistic at time step 240, Delta Time: 20, vehicle count: 92
+set edge cost
+step: 300
+Cost =  104.16666666666667

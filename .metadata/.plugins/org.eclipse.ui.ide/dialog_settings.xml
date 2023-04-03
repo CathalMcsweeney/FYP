@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\2cath\Downloads\Share_Trading_System"/>
+			<item value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\Semester_2\Distributed_Systems\rmisample-win\rmisample-win"/>
+			<item value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\Semester_2\Distributed_Systems\rmicompute"/>
+			<item value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\FYP\evo_traffic"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ResourceNavigator">
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+		<item key="ResourceWorkingSetFilter.STORE_WORKING_SET" value="Aggregate for window 1673891225384"/>
+	</section>
+</section>

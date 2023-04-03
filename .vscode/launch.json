@@ -1,0 +1,98 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "simulation.py file",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "args": [ "--functionString", "max(0.0000000001,length*junctionWht(junction,0.80,0.91)*trafficLevel)", "--individualnumber", "6", "--scenario", "small_dublin"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "simulation.py file Rand Testing",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "args": [ "--functionString", "max(0.0000000001,length*junctionWht(junction,0.80,0.91)*trafficLevel)", "--individualnumber", "6", "--scenario", "randomGrid"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "PonyGe File",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/paramsTrafficCost.txt"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "PonyGe File Junctions",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/junctionsCost.txt","--experiment_name","test"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Junctions Based Dublin",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/junctionsCost.txt","--experiment_name","junctions"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Junctions Only Dublin",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/junctions_Only.txt","--experiment_name","junctions Only"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Junctions Based RandomGrid",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/junctionsCost.txt", "--experiment_name", "junctions Based RandGrid"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Occupancy Based Dublin",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/paramsTrafficCost.txt","--experiment_name","Occupancy Based"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Occupancy Based RandomGrid",
+            "type": "python",
+            "request": "launch",
+            "cwd": "/FYP/evo_traffic/PonyGE2-master/src",
+            "program": "${file}",
+            "args": [ "--parameters", "../parameters/paramsTrafficCost.txt","--experiment_name","Occupancy Based RandGrid"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

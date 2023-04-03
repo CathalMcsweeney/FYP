@@ -1,0 +1,1 @@
+java -cp /Users/des/Documents/CT414-Samples/rmicompute/compute.jar; -Djava.security.policy=server.policy engine.ComputeEngine 20345

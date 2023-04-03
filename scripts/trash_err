@@ -1,0 +1,23 @@
+/usr/local/lib/python3.10/dist-packages/traci/main.py:154: UserWarning: Could not connect to TraCI server using port 43717 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/traci/main.py", line 97, in connect
+    return connection.Connection(host, port, proc, traceFile, traceGetters, label)
+  File "/usr/local/lib/python3.10/dist-packages/traci/connection.py", line 82, in __init__
+    self._socket.connect((host, port))
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/FYP/evo_traffic/scripts/simulation.py", line 250, in <module>
+    cost = runSimulation(args.functionString, args.individualnumber, args.scenario)
+  File "/FYP/evo_traffic/scripts/simulation.py", line 180, in runSimulation
+    traci.start([sumolib.checkBinary('sumo'), "-W",
+  File "/usr/local/lib/python3.10/dist-packages/traci/main.py", line 147, in start
+    result = init(sumoPort, numRetries, "localhost", label, sumoProcess, doSwitch, traceFile, traceGetters)
+  File "/usr/local/lib/python3.10/dist-packages/traci/main.py", line 116, in init
+    con = connect(port, numRetries, host, proc, 1, traceFile, traceGetters, label)
+  File "/usr/local/lib/python3.10/dist-packages/traci/main.py", line 105, in connect
+    time.sleep(waitBetweenRetries)
+KeyboardInterrupt

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-01-16 17:52:16 by Eclipse SUMO GUI Version 1.14.1
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\FYP\evo_traffic\inputs\maps/test_8x8_400.net.xml"/>
+        <route-files value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\FYP\evo_traffic\inputs\routes/test_8x8_400.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\FYP\evo_traffic\inputs\../outputs/trips/8x8_trip.xml"/>
+        <vehroute-output value="C:\Users\2cath\OneDrive\Documents\College\Fourth_Year\FYP\evo_traffic\inputs\../outputs/vehroute/8x8_vr.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <report>
+        <verbose value="false"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <emissions>
+        <device.emissions.probability value="1"/>
+    </emissions>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+</tripinfos>
